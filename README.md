@@ -69,7 +69,6 @@ HindiOCR/
 │
 ├── static/                # CSS, JS, Fonts
 ├── templates/             # Jinja2 HTML Templates (base.html, index.html, about.html)
-├── static  /              # example output
 ├── model/                 # Trained model files, charList, snapshot
 ├── DataLoader.py          # Loads dataset and processes it for the model
 ├── Model.py               # CNN + LSTM + CTC architecture
@@ -124,7 +123,7 @@ Visit `http://localhost:5000` in your browser.
 
 > Upload a handwritten image in Devanagari script and view the prediction result instantly.
 
-![Demo Video](C:\MYOCR_FINAL\src\static\Demo_video.mp4)
+![Demo Video](https://drive.google.com/file/d/1mc3EnoepBATI9VV2maN8UsUSl2N9b3ay/view?usp=sharing)
 
 ---
 
