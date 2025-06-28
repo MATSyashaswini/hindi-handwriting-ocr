@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}About the Project{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+        <!-- Apply dark mode classes to the card -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <!-- Apply dark mode classes to the header -->
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white flex items-center">
+                    <i class="ri-information-line mr-2 text-primary text-2xl"></i>
+                    <!-- Add attributes to the title span -->
+                    <span data-lang-en="About This Project" data-lang-hi="इस परियोजना के बारे में">About This Project</span>
+                </h2>
+            </div>
+            <!-- Apply dark mode classes to text elements in the body -->
+            <div class="p-6 md:p-8 space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3" data-lang-en="Devanagari Handwritten Word Recognition" data-lang-hi="देवनागरी हस्तलिखित शब्द पहचान">Devanagari Handwritten Word Recognition</h3>
+                <p data-lang-en="This project demonstrates the application of deep learning techniques for recognizing handwritten words in the Devanagari script. It was developed as a Final Year Project under the guidance of the National Informatics Centre (NIC), aiming to create a practical tool for showcasing OCR capabilities for Indic scripts." data-lang-hi="यह परियोजना देवनागरी लिपि में हस्तलिखित शब्दों को पहचानने के लिए डीप लर्निंग तकनीकों के अनुप्रयोग का प्रदर्शन करती है। इसे राष्ट्रीय सूचना विज्ञान केंद्र (एनआईसी) के मार्गदर्शन में अंतिम वर्ष की परियोजना के रूप में विकसित किया गया था, जिसका लक्ष्य भारतीय लिपियों के लिए ओसीआर क्षमताओं को प्रदर्शित करने के लिए एक व्यावहारिक उपकरण बनाना था।">
+                    This project demonstrates the application of deep learning techniques for recognizing handwritten words in the Devanagari script. It was developed as a Final Year Project under the guidance of the National Informatics Centre (NIC), aiming to create a practical tool for showcasing OCR capabilities for Indic scripts.
+                </p>
+                <hr class="my-6 border-gray-200 dark:border-gray-600">
+
+                <h4 class="text-xl font-semibold text-gray-800 dark:text-white" data-lang-en="Motivation" data-lang-hi="प्रेरणा">Motivation</h4>
+                <p data-lang-en="India possesses a vast repository of historical documents, government records, and literature primarily written in Devanagari and other Brahmi-derived scripts. Manually processing and digitizing these valuable handwritten resources is a significant challenge – often slow, costly, and prone to errors. While Optical Character Recognition (OCR) offers a technological solution, generic OCR systems frequently struggle with the complexities of Indic scripts like Devanagari. Unique features such as mandatory header lines (shirorekha), vowel modifiers (matras), conjunct characters, and variations in handwriting styles necessitate specialized models. This project addresses this gap by focusing specifically on building and demonstrating a model for isolated handwritten Devanagari words." data-lang-hi="भारत में ऐतिहासिक दस्तावेजों, सरकारी रिकॉर्ड और साहित्य का एक विशाल भंडार है जो मुख्य रूप से देवनागरी और अन्य ब्राह्मी-व्युत्पन्न लिपियों में लिखा गया है। इन मूल्यवान हस्तलिखित संसाधनों को मैन्युअल रूप से संसाधित करना और डिजिटाइज़ करना एक महत्वपूर्ण चुनौती है - अक्सर धीमा, महंगा और त्रुटियों से भरा होता है। जबकि ऑप्टिकल कैरेक्टर रिकग्निशन (ओसीआर) एक तकनीकी समाधान प्रदान करता है, सामान्य ओसीआर सिस्टम अक्सर देवनागरी जैसी जटिल भारतीय लिपियों की जटिलताओं से जूझते हैं। अनिवार्य शीर्षक रेखा (शिरोरेखा), स्वर संशोधक (मात्रा), संयुक्ताक्षर और लिखावट शैलियों में भिन्नता जैसी अनूठी विशेषताओं के लिए विशेष मॉडल की आवश्यकता होती है। यह परियोजना विशेष रूप से पृथक हस्तलिखित देवनागरी शब्दों के लिए एक मॉडल बनाने और प्रदर्शित करने पर ध्यान केंद्रित करके इस अंतर को संबोधित करती है।">
+                    India possesses a vast repository of historical documents, government records, and literature primarily written in Devanagari and other Brahmi-derived scripts. Manually processing and digitizing these valuable handwritten resources is a significant challenge – often slow, costly, and prone to errors. While Optical Character Recognition (OCR) offers a technological solution, generic OCR systems frequently struggle with the complexities of Indic scripts like Devanagari. Unique features such as mandatory header lines (shirorekha), vowel modifiers (matras), conjunct characters, and variations in handwriting styles necessitate specialized models. This project addresses this gap by focusing specifically on building and demonstrating a model for isolated handwritten Devanagari words.
+                </p>
+
+                <h4 class="text-xl font-semibold text-gray-800 dark:text-white mt-4" data-lang-en="Objectives" data-lang-hi="उद्देश्य">Objectives</h4>
+                <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                    <li data-lang-en="Develop and implement a deep learning model (Convolutional + Recurrent Neural Network with CTC loss) tailored for handwritten Devanagari word recognition." data-lang-hi="हस्तलिखित देवनागरी शब्द पहचान के लिए तैयार किए गए डीप लर्निंग मॉडल (सीटीसी लॉस के साथ कन्वेन्शनल + रिकरंट न्यूरल नेटवर्क) का विकास और कार्यान्वयन करना।">Develop and implement a deep learning model (Convolutional + Recurrent Neural Network with CTC loss) tailored for handwritten Devanagari word recognition.</li>
+                    <li data-lang-en="Create an intuitive and accessible web-based interface for demonstrating the model's recognition capabilities using user-uploaded images or provided examples." data-lang-hi="उपयोगकर्ता द्वारा अपलोड की गई छवियों या प्रदान किए गए उदाहरणों का उपयोग करके मॉडल की पहचान क्षमताओं को प्रदर्शित करने के लिए एक सहज और सुलभ वेब-आधारित इंटरफ़ेस बनाना।">Create an intuitive and accessible web-based interface for demonstrating the model's recognition capabilities using user-uploaded images or provided examples.</li>
+                    <li data-lang-en="Evaluate the performance and accuracy of the developed OCR model on relevant test data." data-lang-hi="प्रासंगिक परीक्षण डेटा पर विकसित ओसीआर मॉडल के प्रदर्शन और सटीकता का मूल्यांकन करना।">Evaluate the performance and accuracy of the developed OCR model on relevant test data.</li>
+                    <li data-lang-en="Highlight the potential applicability of such specialized OCR technology in the context of digitizing handwritten records and improving data processing within government and public sector domains, relevant to NIC's mission." data-lang-hi="एनआईसी के मिशन के लिए प्रासंगिक सरकारी और सार्वजनिक क्षेत्र के डोमेन के भीतर हस्तलिखित रिकॉर्ड को डिजिटाइज़ करने और डेटा प्रोसेसिंग में सुधार के संदर्भ में ऐसी विशेष ओसीआर तकनीक की संभावित प्रयोज्यता को उजागर करना।">Highlight the potential applicability of such specialized OCR technology in the context of digitizing handwritten records and improving data processing within government and public sector domains, relevant to NIC's mission.</li>
+                </ul>
+
+                 <h4 class="text-xl font-semibold text-gray-800 dark:text-white mt-4" data-lang-en="Potential Relevance (NIC Context)" data-lang-hi="संभावित प्रासंगिकता (एनआईसी संदर्भ)">Potential Relevance (NIC Context)</h4>
+                 <p data-lang-en="Accurate and efficient Devanagari OCR technology holds significant potential to support various NIC initiatives and e-Governance goals under the Digital India programme. Key applications include:" data-lang-hi="सटीक और कुशल देवनागरी ओसीआर तकनीक में डिजिटल इंडिया कार्यक्रम के तहत विभिन्न एनआईसी पहलों और ई-गवर्नेंस लक्ष्यों का समर्थन करने की महत्वपूर्ण क्षमता है। मुख्य अनुप्रयोगों में शामिल हैं:">
+                    Accurate and efficient Devanagari OCR technology holds significant potential to support various NIC initiatives and e-Governance goals under the Digital India programme. Key applications include:
+                 </p>
+                 <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                    <li data-lang-en="**Digitization of Archives:** Accelerating the conversion of legacy paper-based government records, historical manuscripts, and official archives into searchable digital formats." data-lang-hi="**अभिलेखागार का डिजिटलीकरण:** पुराने कागज-आधारित सरकारी रिकॉर्ड, ऐतिहासिक पांडुलिपियों और आधिकारिक अभिलेखागार के खोज योग्य डिजिटल प्रारूपों में रूपांतरण को तेज करना।">**Digitization of Archives:** Accelerating the conversion of legacy paper-based government records, historical manuscripts, and official archives into searchable digital formats.</li>
+                    <li data-lang-en="**Improved Data Entry:** Streamlining processes that involve capturing information from handwritten forms (e.g., census data, surveys, application forms)." data-lang-hi="**बेहतर डेटा प्रविष्टि:** हस्तलिखित प्रपत्रों (जैसे, जनगणना डेटा, सर्वेक्षण, आवेदन पत्र) से जानकारी प्राप्त करने वाली प्रक्रियाओं को सुव्यवस्थित करना।">**Improved Data Entry:** Streamlining processes that involve capturing information from handwritten forms (e.g., census data, surveys, application forms).</li>
+                    <li data-lang-en="**Enhanced Searchability:** Enabling full-text search across large volumes of previously inaccessible handwritten documents." data-lang-hi="**बढ़ी हुई खोज क्षमता:** पहले से दुर्गम हस्तलिखित दस्तावेजों के बड़े संस्करणों में पूर्ण-पाठ खोज को सक्षम करना।">**Enhanced Searchability:** Enabling full-text search across large volumes of previously inaccessible handwritten documents.</li>
+                    <li data-lang-en="**Accessibility:** Supporting initiatives to make information more accessible by converting handwritten materials into machine-readable text that can be used with assistive technologies." data-lang-hi="**सरल उपयोग:** हस्तलिखित सामग्री को मशीन-पठनीय पाठ में परिवर्तित करके जानकारी को अधिक सुलभ बनाने की पहल का समर्थन करना जिसका उपयोग सहायक तकनीकों के साथ किया जा सकता है।">**Accessibility:** Supporting initiatives to make information more accessible by converting handwritten materials into machine-readable text that can be used with assistive technologies.</li>
+                </ul>
+
+                <!-- Updated Name - decide if you want language toggle for the name -->
+                <!-- Option 1: Always Hindi -->
+                <!-- <p class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                    यशस्विनी खानसामा
+                </p> -->
+
+                <!-- Option 2: Switchable Name -->
+                 <p class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400" data-lang-en="Yashaswini Khansama" data-lang-hi="यशस्विनी खानसामा">
+                    Yashaswini Khansama
+                 </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- No specific JS needed for this static page -->
+{% endblock %}

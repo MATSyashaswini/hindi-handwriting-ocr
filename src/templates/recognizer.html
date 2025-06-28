@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Recognize Word{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+
+        <!-- Input Column -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-600 pb-2">
+                <i class="ri-image-add-line mr-2 text-primary align-bottom"></i>
+                <span data-lang-en="Input Image" data-lang-hi="इनपुट छवि">Input Image</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" data-lang-en="Upload an image (PNG, JPG, JPEG) or select an example below." data-lang-hi="एक छवि (PNG, JPG, JPEG) अपलोड करें या नीचे दिए गए उदाहरण का चयन करें।">
+                Upload an image (PNG, JPG, JPEG) or select an example below.
+            </p>
+
+            <!-- File Input -->
+            <input type="file" id="imageUpload" accept="image/png, image/jpeg, image/jpg" class="hidden"/>
+            <div class="flex items-center mb-4">
+                <label for="imageUpload" class="bg-primary text-white px-4 py-2 rounded-button cursor-pointer hover:bg-blue-700 transition-colors text-sm inline-flex items-center mr-4 whitespace-nowrap">
+                    <i class="ri-upload-2-line mr-2"></i>
+                    <span data-lang-en="Choose File" data-lang-hi="फ़ाइल चुनें">Choose File</span>
+                </label>
+                <span id="fileName" class="text-gray-500 dark:text-gray-400 text-sm italic truncate" data-lang-en="No file chosen" data-lang-hi="कोई फ़ाइल नहीं चुनी गई">No file chosen</span>
+            </div>
+
+            <!-- Examples -->
+            <h3 class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2" data-lang-en="Examples" data-lang-hi="उदाहरण">Examples</h3>
+            <div id="examplesContainer" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 mb-4">
+                <div class="col-span-full">
+                    <span class="text-gray-500 dark:text-gray-400 text-sm" data-lang-en="Loading examples..." data-lang-hi="उदाहरण लोड हो रहे हैं...">Loading examples...</span>
+                </div>
+            </div>
+
+            <!-- Preview -->
+            <div id="imagePreviewContainer" class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600 hidden">
+                <h3 class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2 text-center" data-lang-en="Preview" data-lang-hi="पूर्वावलोकन">Preview</h3>
+                <div class="flex justify-center">
+                    <img id="imagePreview" src="#" alt="Image Preview" class="max-h-60 w-auto rounded border bg-gray-50 dark:bg-gray-700 dark:border-gray-600 p-1"/>
+                </div>
+            </div>
+        </div>
+
+        <!-- Output Column -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 flex flex-col items-center justify-center">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-600 pb-2 w-full text-center">
+                <i class="ri-text mr-2 text-primary align-bottom"></i>
+                <span data-lang-en="Recognition Result" data-lang-hi="पहचान परिणाम">Recognition Result</span>
+            </h2>
+
+            <!-- Recognize Button -->
+            <div class="my-4">
+                <button id="predictButton" class="bg-green-600 text-white px-6 py-3 rounded-button font-medium hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg inline-flex items-center" disabled>
+                    <i class="ri-search-line mr-2"></i>
+                    <span data-lang-en="Recognize Word" data-lang-hi="शब्द पहचानें">Recognize Word</span>
+                </button>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="flex items-center justify-center my-4 text-blue-600 dark:text-blue-400 hidden" style="min-height: 40px;">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span data-lang-en="Processing... Please wait." data-lang-hi="संसाधित हो रहा है... कृपया प्रतीक्षा करें।">Processing... Please wait.</span>
+            </div>
+
+            <!-- Result Display Area -->
+            <div id="resultDisplay" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg w-full text-center hidden" style="min-height: 100px;">
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-3" data-lang-en="Predicted Text:" data-lang-hi="अनुमानित पाठ:">Predicted Text:</h3>
+                <p id="predictionText" class="text-4xl hindi-font font-bold text-gray-900 dark:text-white"></p>
+                <p id="probabilityText" class="text-gray-600 dark:text-gray-400 text-sm mt-2 mb-0"></p>
+            </div>
+
+            <!-- Error Display Area -->
+            <div id="errorDisplay" class="mt-4 p-3 bg-red-100 dark:bg-red-900 dark:bg-opacity-50 border border-red-300 dark:border-red-600 text-red-800 dark:text-red-200 rounded-lg w-full text-sm flex items-center hidden" role="alert">
+                <i class="ri-error-warning-fill mr-2 text-lg"></i>
+                <strong class="mr-1" data-lang-en="Error:" data-lang-hi="त्रुटि:">Error:</strong>
+                <span id="errorText"></span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Script for recognizer page functionality -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

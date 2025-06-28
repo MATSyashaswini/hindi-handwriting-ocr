@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-white dark:bg-gray-800">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-40 dark:opacity-15" style="background-image: url('https://readdy.ai/api/search-image?query=A%20professional%20and%20modern%20scene%20showing%20handwritten%20Hindi%20text%20being%20converted%20to%20digital%20format.%20The%20image%20shows%20a%20hand%20writing%20Hindi%20text%20on%20paper%2C%20with%20digital%20conversion%20happening%20in%20real-time.%20The%20scene%20includes%20a%20tablet%20or%20computer%20screen%20displaying%20the%20converted%20text.%20The%20background%20is%20clean%2C%20minimalist%20with%20soft%20blue%20tones%20matching%20the%20primary%20color%20%25231a73e8.%20The%20lighting%20is%20bright%20and%20professional%2C%20creating%20a%20high-tech%20atmosphere.&width=1280&height=720&seq=12345&orientation=landscape');"></div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white to-transparent dark:from-gray-800 dark:via-gray-800 dark:to-transparent z-10"></div>
+
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-20">
+            <div class="w-full md:w-1/2 lg:w-3/5">
+                <!-- Added data-lang attributes -->
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4" data-lang-en="Hindi OCR" data-lang-hi="हिन्दी ओसीआर">Hindi OCR</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-6" data-lang-en="Convert Handwritten Text to Digital" data-lang-hi="हस्तलिखित पाठ को डिजिटल में बदलें">Convert Handwritten Text to Digital</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-8" data-lang-en="Transform your handwritten Hindi documents into editable digital text with our advanced OCR technology. A Final Year Project for NIC." data-lang-hi="हमारी उन्नत ओसीआर तकनीक से अपने हस्तलिखित हिंदी दस्तावेज़ों को संपादन योग्य डिजिटल टेक्स्ट में बदलें। एनआईसी के लिए अंतिम वर्ष की परियोजना।">
+                    Transform your handwritten Hindi documents into editable digital text with our advanced OCR technology. A Final Year Project for NIC.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="{{ url_for('recognizer') }}" class="bg-primary text-white px-6 py-3 rounded-button flex items-center gap-2 hover:bg-blue-700 transition-colors whitespace-nowrap">
+                        <i class="ri-upload-2-line"></i>
+                        <!-- Added span with data-lang -->
+                        <span data-lang-en="Start Recognizing" data-lang-hi="पहचानना शुरू करें">Start Recognizing</span>
+                    </a>
+                     <a href="{{ url_for('about') }}" class="bg-white text-primary border border-primary px-6 py-3 rounded-button flex items-center gap-2 hover:bg-gray-50 dark:bg-gray-700 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-gray-600 transition-colors whitespace-nowrap">
+                        <i class="ri-info-outline"></i>
+                         <!-- Added span with data-lang -->
+                        <span data-lang-en="Learn More" data-lang-hi="और जानें">Learn More</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions Section -->
+    <section class="py-12 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center" data-lang-en="Get Started Quickly" data-lang-hi="जल्दी से शुरू करें">Get Started Quickly</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Upload Link Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow text-center">
+                    <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+                        <i class="ri-file-upload-line ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2" data-lang-en="Upload Document" data-lang-hi="दस्तावेज़ अपलोड करें">Upload Document</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4" data-lang-en="Upload your handwritten Hindi documents (PDF, JPG, PNG) to extract text." data-lang-hi="टेक्स्ट निकालने के लिए अपने हस्तलिखित हिंदी दस्तावेज़ (PDF, JPG, PNG) अपलोड करें।">Upload your handwritten Hindi documents (PDF, JPG, PNG) to extract text.</p>
+                    <a href="{{ url_for('recognizer') }}" class="w-full inline-block bg-primary text-white py-2 rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap" data-lang-en="Go to Recognizer" data-lang-hi="पहचानकर्ता पर जाएं">Go to Recognizer</a>
+                </div>
+
+                <!-- Examples Link Card -->
+                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow text-center">
+                    <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+                        <i class="ri-image-line ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2" data-lang-en="View Examples" data-lang-hi="उदाहरण देखें">View Examples</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4" data-lang-en="See sample handwritten words and how the OCR model performs on them." data-lang-hi="नमूना हस्तलिखित शब्द देखें और देखें कि ओसीआर मॉडल उन पर कैसा प्रदर्शन करता है।">See sample handwritten words and how the OCR model performs on them.</p>
+                    <a href="{{ url_for('examples') }}" class="w-full inline-block bg-primary text-white py-2 rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap" data-lang-en="See Examples" data-lang-hi="उदाहरण देखें">See Examples</a>
+                </div>
+
+                <!-- Technology Link Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow text-center">
+                    <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+                        <i class="ri-flask-line ri-xl"></i> <!-- Flask or settings icon -->
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2" data-lang-en="Learn the Tech" data-lang-hi="तकनीक सीखें">Learn the Tech</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4" data-lang-en="Discover the deep learning models and frameworks used in this project." data-lang-hi="इस परियोजना में उपयोग किए गए डीप लर्निंग मॉडल और फ्रेमवर्क खोजें।">Discover the deep learning models and frameworks used in this project.</p>
+                    <a href="{{ url_for('technology') }}" class="w-full inline-block bg-primary text-white py-2 rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap" data-lang-en="View Technology" data-lang-hi="तकनीक देखें">View Technology</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-12 bg-white dark:bg-gray-800">
+         <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white text-center mb-12" data-lang-en="How It Works" data-lang-hi="यह कैसे काम करता है">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-center border border-gray-200 dark:border-gray-600">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary rounded-full mx-auto mb-4">
+                        <i class="ri-upload-cloud-line ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3" data-lang-en="1. Upload Image" data-lang-hi="१. छवि अपलोड करें">1. Upload Image</h3>
+                    <p class="text-gray-600 dark:text-gray-400" data-lang-en="Choose a clear image file containing a handwritten Devanagari word." data-lang-hi="एक हस्तलिखित देवनागरी शब्द वाली स्पष्ट छवि फ़ाइल चुनें।">Choose a clear image file containing a handwritten Devanagari word.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-center border border-gray-200 dark:border-gray-600">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary rounded-full mx-auto mb-4">
+                        <i class="ri-magic-line ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3" data-lang-en="2. AI Processing" data-lang-hi="२. एआई प्रोसेसिंग">2. AI Processing</h3>
+                    <p class="text-gray-600 dark:text-gray-400" data-lang-en="The image is analyzed by our deep learning model (CNN+LSTM+CTC)." data-lang-hi="छवि का विश्लेषण हमारे डीप लर्निंग मॉडल (CNN+LSTM+CTC) द्वारा किया जाता है।">The image is analyzed by our deep learning model (CNN+LSTM+CTC).</p>
+                </div>
+                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-center border border-gray-200 dark:border-gray-600">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 text-primary rounded-full mx-auto mb-4">
+                        <i class="ri-text ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3" data-lang-en="3. View Result" data-lang-hi="३. परिणाम देखें">3. View Result</h3>
+                    <p class="text-gray-600 dark:text-gray-400" data-lang-en="The recognized word and the model's confidence score are displayed." data-lang-hi="पहचाना गया शब्द और मॉडल का आत्मविश्वास स्कोर प्रदर्शित होता है।">The recognized word and the model's confidence score are displayed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700">
+         <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6" data-lang-en="Try the Recognizer Now!" data-lang-hi="पहचानकर्ता को अभी आज़माएँ!">Try the Recognizer Now!</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto" data-lang-en="Upload your own handwritten Devanagari word image or select an example to see the OCR technology in action." data-lang-hi="अपनी हस्तलिखित देवनागरी शब्द छवि अपलोड करें या ओसीआर तकनीक को क्रियान्वित देखने के लिए एक उदाहरण चुनें।">Upload your own handwritten Devanagari word image or select an example to see the OCR technology in action.</p>
+            <a href="{{ url_for('recognizer') }}" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-blue-700 transition-colors text-lg" data-lang-en="Go to Recognizer" data-lang-hi="पहचानकर्ता पर जाएं">
+                Go to Recognizer
+            </a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+<!-- No specific JS needed for static landing page beyond base.html's script -->
+{% endblock %}

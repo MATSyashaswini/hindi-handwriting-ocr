@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Technology Used{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+        <!-- Add dark mode classes -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden">
+             <!-- Add dark mode classes -->
+             <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white flex items-center">
+                   <i class="ri-flask-line mr-2 text-primary text-2xl"></i> <!-- Flask icon or other relevant icon -->
+                    <!-- Add data-lang attributes -->
+                    <span data-lang-en="Technology Stack & Methodology" data-lang-hi="प्रौद्योगिकी स्टैक और कार्यप्रणाली">Technology Stack & Methodology</span>
+                </h2>
+            </div>
+             <!-- Add dark mode classes -->
+            <div class="p-6 md:p-8 space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4" data-lang-en="Core Components" data-lang-hi="मुख्य घटक">Core Components</h3>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white pt-2" data-lang-en="1. Deep Learning Model" data-lang-hi="१. डीप लर्निंग मॉडल">1. Deep Learning Model</h4>
+                    <p data-lang-en="The core recognition engine relies on a deep neural network architecture commonly used for sequence recognition tasks, particularly OCR. This typically involves:" data-lang-hi="मुख्य पहचान इंजन एक डीप न्यूरल नेटवर्क आर्किटेक्चर पर निर्भर करता है जो आमतौर पर अनुक्रम पहचान कार्यों, विशेष रूप से ओसीआर के लिए उपयोग किया जाता है। इसमें आम तौर पर शामिल हैं:">
+                        The core recognition engine relies on a deep neural network architecture commonly used for sequence recognition tasks, particularly OCR. This typically involves:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1 pl-4 text-gray-700 dark:text-gray-300">
+                        <li data-lang-en="Convolutional Neural Network (CNN) Layers: These layers act as feature extractors, automatically learning relevant visual patterns (like strokes, curves, loops) directly from the pixel data of the input word images." data-lang-hi="**कन्वेन्शनल न्यूरल नेटवर्क (सीएनएन) लेयर्स:** ये परतें फीचर एक्सट्रैक्टर के रूप में कार्य करती हैं, जो इनपुट शब्द छवियों के पिक्सेल डेटा से सीधे प्रासंगिक दृश्य पैटर्न (जैसे स्ट्रोक, वक्र, लूप) को स्वचालित रूप से सीखती हैं।"><strong>Convolutional Neural Network (CNN) Layers:</strong> These layers act as feature extractors, automatically learning relevant visual patterns (like strokes, curves, loops) directly from the pixel data of the input word images.</li>
+                        <li data-lang-en="Recurrent Neural Network (RNN) Layers: Long Short-Term Memory (LSTM) or Gated Recurrent Unit (GRU) layers are often used after the CNN. They process the sequence of features extracted along the width of the image, capturing contextual information and dependencies between different parts of the word. Bidirectional RNNs are commonly employed to consider context from both left-to-right and right-to-left." data-lang-hi="**रिकरंट न्यूरल नेटवर्क (आरएनएन) लेयर्स:** लॉन्ग शॉर्ट-टर्म मेमोरी (एलएसटीएम) या गेटेड रिकरंट यूनिट (जीआरयू) परतें अक्सर सीएनएन के बाद उपयोग की जाती हैं। वे छवि की चौड़ाई के साथ निकाले गए फीचर्स के अनुक्रम को संसाधित करते हैं, शब्द के विभिन्न हिस्सों के बीच प्रासंगिक जानकारी और निर्भरता को पकड़ते हैं। द्विदिश आरएनएन आमतौर पर बाएं से दाएं और दाएं से बाएं दोनों संदर्भों पर विचार करने के लिए नियोजित होते हैं।"><strong>Recurrent Neural Network (RNN) Layers:</strong> Long Short-Term Memory (LSTM) or Gated Recurrent Unit (GRU) layers are often used after the CNN. They process the sequence of features extracted along the width of the image, capturing contextual information and dependencies between different parts of the word. Bidirectional RNNs are commonly employed to consider context from both left-to-right and right-to-left.</li>
+                        <li data-lang-en="Connectionist Temporal Classification (CTC) Loss: This loss function is essential for training OCR models without requiring pre-segmented character locations. It calculates the probability of the predicted sequence given the input image features, summing over all possible alignments between the input sequence and the target text label." data-lang-hi="**कनेक्शनिस्ट टेम्पोरल क्लासिफिकेशन (सीटीसी) लॉस:** यह लॉस फ़ंक्शन ओसीआर मॉडल को प्रशिक्षित करने के लिए आवश्यक है, बिना पूर्व-खंडित चरित्र स्थानों की आवश्यकता के। यह इनपुट छवि विशेषताओं को देखते हुए अनुमानित अनुक्रम की संभावना की गणना करता है, इनपुट अनुक्रम और लक्ष्य टेक्स्ट लेबल के बीच सभी संभावित संरेखणों का योग करता है।"><strong>Connectionist Temporal Classification (CTC) Loss:</strong> This loss function is essential for training OCR models without requiring pre-segmented character locations. It calculates the probability of the predicted sequence given the input image features, summing over all possible alignments between the input sequence and the target text label.</li>
+                    </ul>
+                     <p class="text-sm text-gray-600 dark:text-gray-400 italic mt-2">
+                        <em data-lang-en="Specific Library Used: TensorFlow 1.15 (as indicated by logs)" data-lang-hi="प्रयुक्त विशिष्ट लाइब्रेरी: टेंसरफ्लो 1.15 (लॉग द्वारा इंगित)">Specific Library Used: TensorFlow 1.15 (as indicated by logs)</em>
+                    </p>
+                     <!-- Optional: Model Diagram Placeholder -->
+                     <!-- <div class="my-4 p-4 border rounded-md bg-gray-50 text-center text-gray-500">Model Architecture Diagram Placeholder</div> -->
+                </div>
+
+                <hr class="my-6 border-gray-200 dark:border-gray-600">
+
+                 <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white" data-lang-en="2. Image Preprocessing" data-lang-hi="२. छवि प्रीप्रोसेसिंग">2. Image Preprocessing</h4>
+                     <p data-lang-en="Raw input images are processed before being fed into the neural network to ensure consistency and optimal performance. Steps (handled by `SamplePreprocessor.py`) include:" data-lang-hi="कच्ची इनपुट छवियों को स्थिरता और इष्टतम प्रदर्शन सुनिश्चित करने के लिए न्यूरल नेटवर्क में फीड करने से पहले संसाधित किया जाता है। चरण (`SamplePreprocessor.py` द्वारा नियंत्रित) में शामिल हैं:">
+                        Raw input images are processed before being fed into the neural network to ensure consistency and optimal performance. Steps (handled by `SamplePreprocessor.py`) include:
+                     </p>
+                     <ul class="list-disc list-inside space-y-1 pl-4 text-gray-700 dark:text-gray-300">
+                        <li data-lang-en="Grayscale Conversion: Converting the image to a single channel (grayscale) reduces complexity." data-lang-hi="**ग्रेस्केल रूपांतरण:** छवि को एकल चैनल (ग्रेस्केल) में परिवर्तित करने से जटिलता कम होती है।"><strong>Grayscale Conversion:</strong> Converting the image to a single channel (grayscale) reduces complexity.</li>
+                        <li data-lang-en="Resizing: Images are typically resized to a fixed height (e.g., 32 or 64 pixels) while maintaining the aspect ratio. Width may vary or be padded to a maximum length." data-lang-hi="**पुनःआकार देना:** छवियों को आमतौर पर पहलू अनुपात बनाए रखते हुए एक निश्चित ऊंचाई (जैसे, 32 या 64 पिक्सेल) में बदला जाता है। चौड़ाई भिन्न हो सकती है या अधिकतम लंबाई तक पैडिंग की जा सकती है।"><strong>Resizing:</strong> Images are typically resized to a fixed height (e.g., 32 or 64 pixels) while maintaining the aspect ratio. Width may vary or be padded to a maximum length.</li>
+                        <li data-lang-en="Normalization: Pixel values are scaled to a standard range (e.g., [0, 1] or [-1, 1]) to stabilize training." data-lang-hi="**सामान्यीकरण:** पिक्सेल मानों को प्रशिक्षण को स्थिर करने के लिए एक मानक सीमा (जैसे, [0, 1] या [-1, 1]) में स्केल किया जाता है।"><strong>Normalization:</strong> Pixel values are scaled to a standard range (e.g., [0, 1] or [-1, 1]) to stabilize training.</li>
+                        <li data-lang-en="(Mention any other significant steps like binarization, slant correction if applicable)" data-lang-hi="<em>(यदि लागू हो तो बाइनराइजेशन, तिरछा सुधार जैसे किसी अन्य महत्वपूर्ण चरणों का उल्लेख करें)</em>"><em>(Mention any other significant steps like binarization, slant correction if applicable)</em></li>
+                     </ul>
+                     <p class="text-sm text-gray-600 dark:text-gray-400 italic mt-2">
+                        <em data-lang-en="Primary Library Used: OpenCV (`cv2`)" data-lang-hi="प्रयुक्त प्राथमिक लाइब्रेरी: ओपनसीवी (`cv2`)">Primary Library Used: OpenCV (`cv2`)</em>
+                     </p>
+                 </div>
+
+                <hr class="my-6 border-gray-200 dark:border-gray-600">
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white" data-lang-en="3. Backend Framework" data-lang-hi="३. बैकएंड फ्रेमवर्क">3. Backend Framework</h4>
+                     <p data-lang-en="The server-side logic, API handling, and coordination are managed by Flask, a Python microframework known for its simplicity and flexibility. Flask's responsibilities in this project include:" data-lang-hi="सर्वर-साइड लॉजिक, एपीआई हैंडलिंग, और समन्वय फ्लास्क द्वारा प्रबंधित किया जाता है, जो अपनी सादगी और लचीलेपन के लिए जाना जाने वाला एक पायथन माइक्रोफ्रेमवर्क है। इस परियोजना में फ्लास्क की जिम्मेदारियों में शामिल हैं:">
+                        The server-side logic, API handling, and coordination are managed by **Flask**, a Python microframework known for its simplicity and flexibility. Flask's responsibilities in this project include:
+                     </p>
+                      <ul class="list-disc list-inside space-y-1 pl-4 text-gray-700 dark:text-gray-300">
+                        <li data-lang-en="Defining URL routes (e.g., `/`, `/recognize`, `/predict`, `/api/examples`)." data-lang-hi="यूआरएल रूट परिभाषित करना (जैसे, `/`, `/recognize`, `/predict`, `/api/examples`)।">Defining URL routes (e.g., `/`, `/recognize`, `/predict`, `/api/examples`).</li>
+                        <li data-lang-en="Handling HTTP requests (GET for pages, POST for predictions)." data-lang-hi="HTTP अनुरोधों को संभालना (पेजों के लिए GET, भविष्यवाणियों के लिए POST)।">Handling HTTP requests (GET for pages, POST for predictions).</li>
+                        <li data-lang-en="Receiving and securely saving uploaded image files." data-lang-hi="अपलोड की गई छवि फ़ाइलों को प्राप्त करना और सुरक्षित रूप से सहेजना।">Receiving and securely saving uploaded image files.</li>
+                        <li data-lang-en="Calling the Python functions in `main.py` to trigger image preprocessing and model inference." data-lang-hi="छवि प्रीप्रोसेसिंग और मॉडल अनुमान को ट्रिगर करने के लिए `main.py` में पायथन फ़ंक्शंस को कॉल करना।">Calling the Python functions in `main.py` to trigger image preprocessing and model inference.</li>
+                        <li data-lang-en="Formatting the prediction results into JSON for the API endpoint." data-lang-hi="एपीआई एंडपॉइंट के लिए भविष्यवाणी परिणामों को JSON में स्वरूपित करना।">Formatting the prediction results into JSON for the API endpoint.</li>
+                        <li data-lang-en="Rendering HTML templates (using the Jinja2 engine) to display web pages." data-lang-hi="वेब पेज प्रदर्शित करने के लिए HTML टेम्प्लेट (जिंजा2 इंजन का उपयोग करके) प्रस्तुत करना।">Rendering HTML templates (using the Jinja2 engine) to display web pages.</li>
+                        <li data-lang-en="Serving static assets like CSS, JavaScript, and images." data-lang-hi="सीएसएस, जावास्क्रिप्ट और छवियों जैसी स्थिर संपत्तियों की सेवा करना।">Serving static assets like CSS, JavaScript, and images.</li>
+                     </ul>
+                </div>
+
+                 <hr class="my-6 border-gray-200 dark:border-gray-600">
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white" data-lang-en="4. Frontend Interface" data-lang-hi="४. फ्रंटएंड इंटरफ़ेस">4. Frontend Interface</h4>
+                     <p data-lang-en="The user interacts with the application through a web interface built using:" data-lang-hi="उपयोगकर्ता निम्न का उपयोग करके बनाए गए वेब इंटरफ़ेस के माध्यम से एप्लिकेशन के साथ इंटरैक्ट करता है:">
+                        The user interacts with the application through a web interface built using:
+                     </p>
+                      <ul class="list-disc list-inside space-y-1 pl-4 text-gray-700 dark:text-gray-300">
+                        <li data-lang-en="HTML5: Provides the fundamental structure and content of the web pages." data-lang-hi="**HTML5:** वेब पेजों की मौलिक संरचना और सामग्री प्रदान करता है।"><strong>HTML5:</strong> Provides the fundamental structure and content of the web pages.</li>
+                        <li data-lang-en="Tailwind CSS: A utility-first CSS framework used for rapidly building the user interface. It provides low-level utility classes (like `p-6`, `rounded-lg`, `text-center`, `font-semibold`, `hidden`) to style elements directly in the HTML markup, promoting consistency and custom design without writing extensive custom CSS." data-lang-hi="**टेलविंड सीएसएस:** यूजर इंटरफेस को तेजी से बनाने के लिए इस्तेमाल किया जाने वाला एक यूटिलिटी-फर्स्ट सीएसएस फ्रेमवर्क। यह सीधे HTML मार्कअप में तत्वों को स्टाइल करने के लिए निम्न-स्तरीय उपयोगिता वर्ग (जैसे `p-6`, `rounded-lg`, `text-center`, `font-semibold`, `hidden`) प्रदान करता है, व्यापक कस्टम CSS लिखे बिना स्थिरता और कस्टम डिज़ाइन को बढ़ावा देता है।"><strong>Tailwind CSS:</strong> A utility-first CSS framework used for rapidly building the user interface. It provides low-level utility classes (like `p-6`, `rounded-lg`, `text-center`, `font-semibold`, `hidden`) to style elements directly in the HTML markup, promoting consistency and custom design without writing extensive custom CSS.</li>
+                        <li data-lang-en="Vanilla JavaScript: Handles all client-side interactivity, including:" data-lang-hi="**वैनिला जावास्क्रिप्ट:** सभी क्लाइंट-साइड इंटरैक्टिविटी को संभालता है, जिसमें शामिल हैं:"><strong>Vanilla JavaScript:</strong> Handles all client-side interactivity, including:
+                            <ul class="list-['○'] list-inside space-y-1 pl-6 mt-1 text-gray-700 dark:text-gray-300">
+                                <li data-lang-en="Managing file input selection and example image clicks." data-lang-hi="फ़ाइल इनपुट चयन और उदाहरण छवि क्लिक प्रबंधित करना।">Managing file input selection and example image clicks.</li>
+                                <li data-lang-en="Displaying image previews." data-lang-hi="छवि पूर्वावलोकन प्रदर्शित करना।">Displaying image previews.</li>
+                                <li data-lang-en="Making asynchronous API calls (`fetch`) to the Flask backend's `/predict` endpoint to send the image data." data-lang-hi="छवि डेटा भेजने के लिए फ्लास्क बैकएंड के `/predict` एंडपॉइंट पर एसिंक्रोनस एपीआई कॉल (`fetch`) करना।">Making asynchronous API calls (`fetch`) to the Flask backend's `/predict` endpoint to send the image data.</li>
+                                <li data-lang-en="Receiving and parsing the JSON response from the backend." data-lang-hi="बैकएंड से JSON प्रतिक्रिया प्राप्त करना और पार्स करना।">Receiving and parsing the JSON response from the backend.</li>
+                                <li data-lang-en="Dynamically updating the HTML to show prediction results, loading states, or error messages." data-lang-hi="भविष्यवाणी परिणाम, लोडिंग स्थितियाँ, या त्रुटि संदेश दिखाने के लिए HTML को गतिशील रूप से अपडेट करना।">Dynamically updating the HTML to show prediction results, loading states, or error messages.</li>
+                                <li data-lang-en="Handling basic UI state changes (e.g., enabling/disabling buttons)." data-lang-hi="बुनियादी UI स्थिति परिवर्तनों को संभालना (जैसे, बटन सक्षम/अक्षम करना)।">Handling basic UI state changes (e.g., enabling/disabling buttons).</li>
+                            </ul>
+                         </li>
+                         <li data-lang-en="Remixicon / Google Fonts: Used for icons and specific typography (Inter, Noto Sans Devanagari, Pacifico)." data-lang-hi="**रीमिक्सिकॉन / गूगल फ़ॉन्ट्स:** आइकन और विशिष्ट टाइपोग्राफी (इंटर, नोटो सैंस देवनागरी, पैसिफिको) के लिए उपयोग किया जाता है।"><strong>Remixicon / Google Fonts:</strong> Used for icons and specific typography (Inter, Noto Sans Devanagari, Pacifico).</li>
+                     </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- No specific JS needed for this static page -->
+{% endblock %}

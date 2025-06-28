@@ -1,0 +1,76 @@
+/* --- Font Definitions (Ensure loaded via <link> tags in base.html) --- */
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    -webkit-font-smoothing: antialiased; /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.hindi-font {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* --- Custom Switch Styles (from provided HTML) --- */
+.custom-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.custom-switch-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.custom-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Default off color */
+    transition: .4s;
+    border-radius: 34px; /* Rounded */
+}
+
+.custom-switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgb(136, 145, 212);
+    transition: .4s;
+    border-radius: 50%; /* Circle */
+}
+
+.custom-switch-input:checked + .custom-switch-slider {
+    background-color: #1a73e8; /* Primary color when on */
+}
+
+.custom-switch-input:checked + .custom-switch-slider:before {
+    transform: translateX(26px); /* Move the circle */
+}
+
+/* --- Accessibility: Ensure focus is visible --- */
+/* Tailwind's default focus rings are usually good, but this is a fallback */
+*:focus-visible {
+  outline: 2px solid #1a73e8; /* Use primary color for focus */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.3); /* Optional softer focus ring */
+}
+
+/* --- Other Minimal Custom Styles (if any) --- */
+
+/* Example: Add a specific style for the example image containers if needed beyond grid/aspect ratio */
+.example-image-container {
+    /* Custom styles here */
+    /* aspect-ratio: 3 / 2; */ /* Tailwind handles aspect ratio now */
+}
+
+.example-image {
+   /* Custom image styles here */
+}

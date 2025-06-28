@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Examples{% endblock %}
+
+{% block head_extra %}
+<!-- Add specific styles for this page if needed -->
+<style>
+    .example-page-img {
+        max-height: 150px; /* Adjust height for image display on this page */
+        width: auto;       /* Maintain aspect ratio */
+        object-fit: contain; /* Ensure the whole image is visible */
+        margin-left: auto;
+        margin-right: auto; /* Center the image within its container */
+    }
+    .card-title-fixed-height {
+        min-height: 3em; /* Adjust as needed to prevent layout jumps */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 border-b pb-4">
+        <i class="ri-gallery-line mr-2 text-primary align-middle"></i>Example Words & Predictions
+    </h2>
+
+    <!-- Check if there was an error message from Flask -->
+    {% if error %}
+         <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md shadow-sm mb-6" role="alert">
+            <p class="font-bold">Error Loading Examples</p>
+            <p>{{ error }}</p>
+         </div>
+    {% endif %}
+
+    <!-- Check if examples_data list exists and is not empty -->
+    {% if examples_data %}
+        <p class="text-center text-gray-600 mb-8">
+            Showing results from processing images found in the <code>src/static/examples/</code> directory using the loaded OCR model.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Loop through each example item passed from Flask -->
+            {% for item in examples_data %}
+                <div class="col">
+                    <div class="card flex flex-col h-full bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden transition-shadow hover:shadow-lg">
+                        <!-- Image Section -->
+                        <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-center items-center" style="min-height: 180px;"> <!-- Fixed height container -->
+                             <img src="{{ item.url }}" class="example-page-img" alt="{{ item.filename }}">
+                        </div>
+                        <!-- Text Section -->
+                        <div class="card-body p-4 text-center flex-grow">
+                            <!-- Prediction Text -->
+                            <div class="card-title-fixed-height mb-2"> <!-- Fixed height title area -->
+                                <h5 class="card-title text-2xl hindi-font font-semibold text-gray-800 leading-tight">
+                                     {% if item.prediction.startswith('Error:') %}
+                                        <span class="text-red-600 text-lg">{{ item.prediction }}</span>
+                                     {% else %}
+                                        {{ item.prediction }}
+                                     {% endif %}
+                                </h5>
+                             </div>
+                            <!-- Probability -->
+                             {% if not item.prediction.startswith('Error:') %}
+                                <p class="card-text text-gray-500 text-sm mb-0">
+                                    Confidence: {{ "%.1f"|format(item.probability * 100) }}%
+                                </p>
+                             {% endif %}
+                        </div>
+                        <!-- Footer Section -->
+                        <div class="card-footer bg-gray-50 border-t border-gray-200 px-4 py-2">
+                             <small class="text-muted text-xs truncate block">{{ item.filename }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% elif not error %} <!-- Only show this if no error AND no data -->
+        <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-md shadow-sm text-center" role="alert">
+            <p>No valid example images were found or processed.</p>
+            <p class="text-sm">Please check the <code>src/static/examples/</code> folder on the server.</p>
+        </div>
+    {% endif %} <!-- End check for examples_data -->
+
+</div> <!-- /container -->
+
+{% endblock %}
+
+{% block scripts %}
+<!-- No specific JavaScript needed for this page, interactions handled by links/images -->
+{% endblock %}
