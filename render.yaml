@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: hindi-ocr-flask
+    env: python
+    buildCommand: pip install -r src/requirements.txt
+    startCommand: gunicorn upload:app --chdir src
+    autoDeploy: true
